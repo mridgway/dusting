@@ -12,11 +12,10 @@ function dustify(file, basename) {
 
 module.exports = function(config) {
   var cwd = process.cwd();
-
-  config.source = path.normalize(path.join(cwd, config.source));
-  config.output = path.normalize(path.join(cwd, config.output));
   config.rootOutput = config.rootOutput || 'templates.js';
   config.rootOutput = path.normalize(path.join(config.output, config.rootOutput));
+
+  console.log(config);
 
   diveSync(config.source, {recursive: true, directories: false}, function(err, file) {
     // only work with dust files

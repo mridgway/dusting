@@ -1,6 +1,6 @@
 {
   "name": "dusting",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "cli and node module to compile dust.js templates",
   "main": "dusting.js",
   "dependencies": {
