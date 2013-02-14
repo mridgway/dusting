@@ -18,7 +18,7 @@ in a node project (designed to be used synchronously):
 
     var dusting = require('dusting');
     dusting({
-      input: <input>,
+      source: <input>,
       output: <output>
     });
 
@@ -26,5 +26,5 @@ command line:
 
     dusting <input> [output]
 
- - `<input>` path to a directory containing dust.js templates (`*.dust`).
+ - `<source>` path to a directory containing dust.js templates (`*.dust`).
  - `[output]` directory to write output to, defaults to cwd
