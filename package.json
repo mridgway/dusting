@@ -25,5 +25,10 @@
   ],
   "author": "Matt Hadley <matthew.hadley@gmail.com>",
   "license": "MIT",
-  "readmeFilename": "README.md"
+  "readmeFilename": "README.md",
+  "gitHead": "667feb90543eb4eccda0312b7e4ed0dad23567f4",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/diffsky/dusting.git"
+  }
 }
