@@ -1,0 +1,32 @@
+#!/usr/bin/env node
+
+var program = require('commander'),
+  path = require('path'),
+  dusting = require('../');
+
+program
+  .version(require('../package.json').version)
+  .on('--help', function(){
+    console.log('  Example usage:');
+    console.log('');
+    console.log('      $ dusting inputdir [outputdir]');
+    console.log('');
+  })
+  .parse(process.argv);
+
+if (! program.args[0]) {
+  console.log("dusting ERROR: no input dir");
+  process.exit(1);
+}
+
+if (! program.args[1]) {
+  program.args[1] = '.';
+  console.log("dusting WARN: no output specified, using current directory");
+  console.log();
+}
+
+var config = {
+  source: program.args[0],
+  output: program.args[1]
+};
+dusting(config);
