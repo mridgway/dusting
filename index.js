@@ -1,17 +1,17 @@
 var diveSync = require('diveSync')
   , fs = require('fs')
   , path = require('path')
-  , compile = { root:[], sub:{}}
-  , dust = require('dustjs-helpers')
-  , output = '', name, dir, filename;
+  , dust = require('dustjs-helpers');
 
 function dustify(file, basename, whitespace) {
-  filename = path.basename(file, '.dust');
+  var filename = path.basename(file, '.dust');
   return dust.compile(fs.readFileSync(file, 'utf-8'), basename+filename, whitespace);
 }
 
 module.exports = function(config) {
-  var cwd = process.cwd();
+  var cwd = process.cwd()
+    , output = '', dir, filename
+    , compile = { root:[], sub:{}};
 
   config.source = path.normalize(path.resolve(cwd, config.source));
   config.output = path.normalize(path.resolve(cwd, config.output));
