@@ -12,7 +12,6 @@ program
     console.log('      $ dusting inputdir [outputdir]');
     console.log('');
   })
-  .option('-w, --whitespace', 'strip whitespace')
   .parse(process.argv);
 
 if (! program.args[0]) {
@@ -28,8 +27,7 @@ if (! program.args[1]) {
 
 var config = {
   source: program.args[0],
-  output: program.args[1],
-  whitespace: program.whitespace
+  output: program.args[1]
 };
 
 dusting(config);

@@ -3,9 +3,9 @@ var diveSync = require('diveSync')
   , path = require('path')
   , dust = require('dustjs-helpers');
 
-function dustify(file, basename, whitespace) {
+function dustify(file, basename) {
   var filename = path.basename(file, '.dust');
-  return dust.compile(fs.readFileSync(file, 'utf-8'), basename+filename, whitespace);
+  return dust.compile(fs.readFileSync(file, 'utf-8'), basename+filename);
 }
 
 module.exports = function(config) {
@@ -29,9 +29,9 @@ module.exports = function(config) {
     }
     if(dir) {
       compile.sub[dir] = compile.sub[dir] || [];
-      compile.sub[dir].push({name:basename,fn:dustify(file, dir+'.', config.whitespace)});
+      compile.sub[dir].push({name:basename,fn:dustify(file, dir+'.')});
     } else {
-      compile.root.push({name:basename,fn:dustify(file, dir, config.whitespace)});
+      compile.root.push({name:basename,fn:dustify(file, dir)});
     }
   });
 
