@@ -1,11 +1,19 @@
 var diveSync = require('diveSync')
   , fs = require('fs')
   , path = require('path')
-  , dust = require('dustjs-helpers');
+  , dust = require('dustjs-helpers')
+  , err = [];
 
 function dustify(file, basename) {
-  var filename = path.basename(file, '.dust');
-  return dust.compile(fs.readFileSync(file, 'utf-8'), basename+filename);
+  var filename = path.basename(file, '.dust')
+    , tmpl;
+  try {
+    tmpl = dust.compile(fs.readFileSync(file, 'utf-8'), basename+filename);
+  } catch(e) {
+    err.push(e);
+    console.log(e);
+  }
+  return tmpl;
 }
 
 module.exports = function(config) {
@@ -65,4 +73,9 @@ module.exports = function(config) {
     console.log('`---> '+path.relative(config.output, filename));
     console.log('');
   };
+
+  // return error array if any raised
+  if(err.length) {
+    return err;
+  }
 }
