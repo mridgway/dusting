@@ -1,7 +1,7 @@
 var diveSync = require('diveSync')
   , fs = require('fs')
   , path = require('path')
-  , dust = require('dustjs-helpers')
+  , dust = require('dustjs-linkedin')
   , err = [];
 
 function dustify(file, basename) {

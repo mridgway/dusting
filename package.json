@@ -1,13 +1,12 @@
 {
   "name": "dusting",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "cli and node module to compile dust.js templates",
   "main": "dusting.js",
   "dependencies": {
     "commander": "~1.0.4",
     "diveSync": "0.2.0",
-    "dustjs-linkedin": "1.2.1",
-    "dustjs-helpers": "1.1.1"
+    "dustjs-linkedin": "1.2.1"
   },
   "devDependencies": {},
   "scripts": {
