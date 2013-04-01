@@ -10,8 +10,8 @@ function dustify(file, basename) {
   try {
     tmpl = dust.compile(fs.readFileSync(file, 'utf-8'), basename+filename);
   } catch(e) {
-    err.push(e);
-    console.log(e);
+    err.push(file + e);
+    console.log(file, e);
   }
   return tmpl;
 }
