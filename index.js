@@ -8,7 +8,7 @@ function dustify(file, basename) {
   var filename = path.basename(file, '.dust')
     , tmpl;
   try {
-    tmpl = dust.compile(fs.readFileSync(file, 'utf-8'), basename+filename);
+    tmpl = dust.compile(fs.readFileSync(file, 'utf-8'), basename.replace(/\./g, "/")+filename);
   } catch(e) {
     err.push(file + e);
     console.log(file, e);
